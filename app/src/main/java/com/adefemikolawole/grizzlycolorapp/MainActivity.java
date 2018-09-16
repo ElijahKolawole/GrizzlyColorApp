@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +16,8 @@ ConstraintLayout mainLayout;
 
 TextView txtSwatch;
 Button btAbout;
+SeekBar sbR, sbG, sbB, sbA;
+TextView txtRed, txtGreen, txtBlue, txtAlpha;
 
 
     @Override
@@ -43,6 +46,97 @@ Button btAbout;
                 showAboutToast();
             }
         });
+
+        //set textview for seekbar progress
+        txtRed = (TextView) findViewById(R.id.txtRed);
+        txtGreen = (TextView) findViewById(R.id.txtGreen);
+        txtBlue = (TextView) findViewById(R.id.txtBlue);
+        txtAlpha = (TextView) findViewById(R.id.txtAlpha);
+
+        //set action listener for seekBar red
+        sbR = (SeekBar)  findViewById(R.id.sbR);
+
+        sbR.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+txtRed.setText(""+ progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                showSeekBarToast("Selected Red");
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
+        //set action listener for seekBar green
+        sbG = (SeekBar)  findViewById(R.id.sbG);
+
+        sbG.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                txtGreen.setText(""+ progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                showSeekBarToast("Selected Green");
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
+        //set action listener for seekBar blue
+        sbB = (SeekBar)  findViewById(R.id.sbB);
+
+        sbB.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                txtBlue.setText(""+ progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                showSeekBarToast("Selected Blue");
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
+        //set action listener for seekBar alpha
+        sbA = (SeekBar)  findViewById(R.id.sbA);
+
+        sbA.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                txtAlpha.setText(""+ progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                showSeekBarToast("Selected Alpha");
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                //showSeekBarToast("Unselected A");
+
+            }
+        });
+
     }
 
    public void print(String str){
@@ -51,9 +145,14 @@ Button btAbout;
 
    public void showAboutToast(){
 
-       Toast.makeText(MainActivity.this, txtAbout, Toast.LENGTH_LONG).show();
+       Toast.makeText(MainActivity.this, txtAbout, Toast.LENGTH_SHORT).show();
    }
 
+
+   public void showSeekBarToast(String str){
+        Toast.makeText(MainActivity.this, str, Toast.LENGTH_LONG).show();
+
+   }
   /*  public void showAboutSnackbar(){
 SnackBar snackbar;
       Snackbar.make(MainActivity.this, txtAbout, Toast.LENGTH_LONG).show();

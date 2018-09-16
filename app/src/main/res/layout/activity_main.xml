@@ -4,8 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/grizzly"
+
     tools:context=".MainActivity"
-    tools:layout_editor_absoluteY="81dp">
+    tools:layout_editor_absoluteY="81dp"
+    android:id="@+id/mainConstraintLayout"
+    >
 
     <TextView
         android:id="@+id/txtR"
@@ -15,6 +19,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/txtR"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,6 +33,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="@string/txtG"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/txtR"
         app:layout_constraintStart_toEndOf="@+id/txtR"
         app:layout_constraintTop_toBottomOf="@+id/txtR" />
@@ -42,6 +48,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="@string/txtB"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/txtG"
         app:layout_constraintStart_toEndOf="@+id/txtG"
         app:layout_constraintTop_toBottomOf="@+id/txtG" />
@@ -56,6 +63,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="@string/txtA"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/txtB"
         app:layout_constraintStart_toEndOf="@+id/txtB"
         app:layout_constraintTop_toBottomOf="@+id/txtB" />
@@ -105,7 +113,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btUpdate" />
+        app:layout_constraintTop_toBottomOf="@+id/btUpdate"
+
+        />
 
     <SeekBar
         android:id="@+id/sbR"
@@ -118,7 +128,8 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtR"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <SeekBar
         android:id="@+id/sbG"

@@ -19,7 +19,7 @@ private Button btAbout, btUpdate;
 private SeekBar sbR, sbG, sbB, sbA;
 private TextView txtRed, txtGreen, txtBlue, txtAlpha;
 
-private int r, g, b, a;
+private int r, g, b, a ;
 String txtSwatch;
 
 
@@ -39,7 +39,9 @@ String txtSwatch;
 //Set transparency for swatch view
         tvSwatch = (TextView) findViewById(R.id.txtSwatch);
         //txtSwatch.getBackground().setAlpha(120);
-
+//setInitial Color for Swatch :: inital declaration of all seekbar is 0 which is 00;
+         a= 0; r= 9; g= 0; b= 0;
+        setStringSwatch();
 
         //set Toast function for button about
         btAbout = (Button) findViewById(R.id.btAbout);
@@ -193,11 +195,12 @@ SnackBar snackbar;
 
   public void setStringSwatch(){
      // txtSwatch = "#"+"A:" + a +    " R:" + r +  " G:" + g + " B:" + b ;
+      //tvSwatch.setText(txtSwatch);
       String hexR =  Integer.toHexString(r).toUpperCase();
       String hexG =  Integer.toHexString(g).toUpperCase();
       String hexB =  Integer.toHexString(b).toUpperCase();
       String hexA =  Integer.toHexString(a).toUpperCase();
-      txtSwatch = "#"+hexA+hexR+hexG+hexB ;
+      txtSwatch = "#"+hexA+hexR+hexG+hexB;
 
       tvSwatch.setText(txtSwatch);
 

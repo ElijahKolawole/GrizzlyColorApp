@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Grizzly Colors App</string>
+    <string name="txtR">R</string>
+    <string name="txtG">G</string>
+    <string name="txtB">B</string>
+    <string name="txtA">A</string>
+    <string name="btUpdate">UPDATE</string>
+    <string name="btAbout">ABOUT</string>
+
+
 </resources>

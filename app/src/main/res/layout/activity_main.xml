@@ -129,6 +129,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:max="255"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtR"
         app:layout_constraintTop_toTopOf="parent" />
@@ -176,5 +177,85 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtA"
         app:layout_constraintTop_toBottomOf="@+id/txtB" />
+
+    <TextView
+        android:id="@+id/txtRed"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toEndOf="@+id/txtR"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/sbR"
+        />
+
+    <TextView
+        android:id="@+id/txtGreen"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toEndOf="@+id/txtG"
+        app:layout_constraintTop_toBottomOf="@+id/sbR"
+        app:layout_constraintBottom_toTopOf="@+id/sbG"
+        />
+
+    <TextView
+        android:id="@+id/txtBlue"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toEndOf="@+id/txtB"
+        app:layout_constraintTop_toBottomOf="@+id/txtG"
+        app:layout_constraintBottom_toTopOf="@+id/sbB"
+        />
+
+    <TextView
+        android:id="@+id/txtAlpha"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toEndOf="@+id/txtA"
+        app:layout_constraintTop_toBottomOf="@+id/sbB"
+        app:layout_constraintBottom_toTopOf="@+id/sbA"
+        />
 
 </android.support.constraint.ConstraintLayout>

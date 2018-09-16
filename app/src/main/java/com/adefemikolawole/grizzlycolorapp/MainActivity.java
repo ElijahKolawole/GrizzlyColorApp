@@ -14,12 +14,13 @@ public class MainActivity extends AppCompatActivity {
 final String txtAbout = "Author: Adefemi Kolawole\nClass: ITEC 4550\nDate: Fall 2018 (9/16/2018)";
 ConstraintLayout mainLayout;
 
-private TextView txtSwatch;
+private TextView tvSwatch;
 private Button btAbout, btUpdate;
 private SeekBar sbR, sbG, sbB, sbA;
 private TextView txtRed, txtGreen, txtBlue, txtAlpha;
 
 private int r, g, b, a;
+String txtSwatch;
 
 
     @Override
@@ -36,8 +37,9 @@ private int r, g, b, a;
         mainLayout = (ConstraintLayout) findViewById(R.id.mainConstraintLayout);
         mainLayout.getBackground().setAlpha(120);
 //Set transparency for swatch view
-        txtSwatch = (TextView) findViewById(R.id.txtSwatch);
-        txtSwatch.getBackground().setAlpha(120);
+        tvSwatch = (TextView) findViewById(R.id.txtSwatch);
+        //txtSwatch.getBackground().setAlpha(120);
+
 
         //set Toast function for button about
         btAbout = (Button) findViewById(R.id.btAbout);
@@ -67,7 +69,9 @@ private int r, g, b, a;
             @Override
             public void onClick(View v) {
              //   txtSwatch.setText("test" );
-                showSeekBarToast(String.valueOf(r));
+                //showSeekBarToast(String.valueOf(r));
+
+                setStringSwatch();
             }
         });
 
@@ -185,4 +189,20 @@ SnackBar snackbar;
       Snackbar.make(MainActivity.this, txtAbout, Toast.LENGTH_LONG).show();
     }
 */
+
+
+  public void setStringSwatch(){
+     // txtSwatch = "#"+"A:" + a +    " R:" + r +  " G:" + g + " B:" + b ;
+      String hexR =  Integer.toHexString(r).toUpperCase();
+      String hexG =  Integer.toHexString(g).toUpperCase();
+      String hexB =  Integer.toHexString(b).toUpperCase();
+      String hexA =  Integer.toHexString(a).toUpperCase();
+      txtSwatch = "#"+hexA+hexR+hexG+hexB ;
+
+      tvSwatch.setText(txtSwatch);
+
+
+     // tvSwatch.setText(txtSwatch);
+
+     }
 }

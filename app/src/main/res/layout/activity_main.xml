@@ -77,12 +77,13 @@
         android:fadingEdge="none|horizontal|vertical"
         android:gravity="center_vertical|center_horizontal"
         android:padding="50dp"
-        android:text="#C72C33C7"
+        android:text=""
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/btUpdate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtA" />
+        app:layout_constraintTop_toBottomOf="@+id/txtA"
+        tools:text="@string/app_name" />
 
     <Button
         android:id="@+id/btUpdate"

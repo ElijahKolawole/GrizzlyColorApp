@@ -14,10 +14,12 @@ public class MainActivity extends AppCompatActivity {
 final String txtAbout = "Author: Adefemi Kolawole\nClass: ITEC 4550\nDate: Fall 2018 (9/16/2018)";
 ConstraintLayout mainLayout;
 
-TextView txtSwatch;
-Button btAbout;
-SeekBar sbR, sbG, sbB, sbA;
-TextView txtRed, txtGreen, txtBlue, txtAlpha;
+private TextView txtSwatch;
+private Button btAbout, btUpdate;
+private SeekBar sbR, sbG, sbB, sbA;
+private TextView txtRed, txtGreen, txtBlue, txtAlpha;
+
+private int r, g, b, a;
 
 
     @Override
@@ -53,6 +55,24 @@ TextView txtRed, txtGreen, txtBlue, txtAlpha;
         txtBlue = (TextView) findViewById(R.id.txtBlue);
         txtAlpha = (TextView) findViewById(R.id.txtAlpha);
 
+
+        //set calues for ints a, r, g, b for use in the assignemnt of color.get te progress from text view and assing to each respecitvely
+      //r = Integer.parseInt( txtRed.getText().toString());
+
+       //Button update
+        btUpdate = (Button) findViewById(R.id.btUpdate);
+
+        //set event listener got btUpdate
+        btUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+             //   txtSwatch.setText("test" );
+                showSeekBarToast(String.valueOf(r));
+            }
+        });
+
+
+
         //set action listener for seekBar red
         sbR = (SeekBar)  findViewById(R.id.sbR);
 
@@ -60,6 +80,9 @@ TextView txtRed, txtGreen, txtBlue, txtAlpha;
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 txtRed.setText(""+ progress);
+                r = Integer.parseInt( txtRed.getText().toString());
+
+
             }
 
             @Override
@@ -81,6 +104,7 @@ txtRed.setText(""+ progress);
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 txtGreen.setText(""+ progress);
+                g = Integer.parseInt( txtGreen.getText().toString());
             }
 
             @Override
@@ -101,7 +125,9 @@ txtRed.setText(""+ progress);
         sbB.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
                 txtBlue.setText(""+ progress);
+                b = Integer.parseInt( txtBlue.getText().toString());
             }
 
             @Override
@@ -123,6 +149,7 @@ txtRed.setText(""+ progress);
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 txtAlpha.setText(""+ progress);
+                a = Integer.parseInt( txtAlpha.getText().toString());
             }
 
             @Override

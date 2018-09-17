@@ -21,7 +21,7 @@ private TextView tvSwatch;
 private Button btAbout, btUpdate;
 private SeekBar sbR, sbG, sbB, sbA;
 private TextView txtRed, txtGreen, txtBlue, txtAlpha;
-
+private int initialColor;
 private int r, g, b, a ;
 String txtSwatch;
 
@@ -31,13 +31,19 @@ String txtSwatch;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.mipmap.ic_launcher);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        try {
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setLogo(R.mipmap.ic_launcher);
+            getSupportActionBar().setDisplayUseLogoEnabled(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e);
+        }
+
 
         print(txtAbout);
         // set transparency for main layout
-        mainLayout = (ConstraintLayout) findViewById(R.id.mainConstraintLayout);
+        mainLayout = findViewById(R.id.mainConstraintLayout);
         mainLayout.getBackground().setAlpha(120);
 //Set transparency for swatch view
         tvSwatch = (TextView) findViewById(R.id.txtSwatch);
@@ -58,9 +64,13 @@ String txtSwatch;
 
         //set textview for seekbar progress
         txtRed = (TextView) findViewById(R.id.txtRed);
+        txtRed.setText("0");//set Initial color to inital value of seek bar which is 0. so there is absolute transparency.
         txtGreen = (TextView) findViewById(R.id.txtGreen);
+        txtGreen.setText("0");//set Initial color to inital value of seek bar which is 0. so there is absolute transparency.
         txtBlue = (TextView) findViewById(R.id.txtBlue);
+        txtBlue.setText("0");//set Initial color to inital value of seek bar which is 0. so there is absolute transparency.
         txtAlpha = (TextView) findViewById(R.id.txtAlpha);
+        txtAlpha.setText("0");//set Initial color to inital value of seek bar which is 0. so there is absolute transparency.
 
         //set values for ints a, r, g, b for use in the assignemnt of color.get te progress from text view and assing to each respecitvely
         //r = Integer.parseInt( txtRed.getText().toString());
@@ -79,6 +89,8 @@ String txtSwatch;
 //tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
                 //setNewBackgroundColor(tvSwatch, txtSwatch);
                 //setStringSwatch();
+
+                setStringSwatch();
             }
         });
 
@@ -91,9 +103,9 @@ String txtSwatch;
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 txtRed.setText(""+ progress);
-                r = Integer.parseInt( txtRed.getText().toString());
-                setStringSwatch();
-                tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
+               // r = Integer.parseInt( txtRed.getText().toString());
+               // setStringSwatch();
+                //tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
 
 
             }
@@ -118,8 +130,8 @@ txtRed.setText(""+ progress);
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 txtGreen.setText(""+ progress);
                 g = Integer.parseInt( txtGreen.getText().toString());
-                setStringSwatch();
-                tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
+               // setStringSwatch();
+               // tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
             }
 
             @Override
@@ -143,8 +155,8 @@ txtRed.setText(""+ progress);
 
                 txtBlue.setText(""+ progress);
                 b = Integer.parseInt( txtBlue.getText().toString());
-                setStringSwatch();
-                tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
+               // setStringSwatch();
+               // tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
             }
 
             @Override
@@ -167,8 +179,8 @@ txtRed.setText(""+ progress);
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 txtAlpha.setText(""+ progress);
                 a = Integer.parseInt( txtAlpha.getText().toString());
-                setStringSwatch();
-                tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
+                //setStringSwatch();
+               // tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
             }
 
             @Override

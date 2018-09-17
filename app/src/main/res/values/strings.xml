@@ -6,7 +6,9 @@
     <string name="txtA">A</string>
     <string name="btUpdate">UPDATE</string>
     <string name="btAbout">ABOUT</string>
-    <string name="strSwatchColor">"#"+"Integer.toHexString(a).toUpperCase(125, 125, 125, 125);"</string>
+    <color name="swatchColor"> @color/colorSwatch </color>
+
+    findViewBy
 
 
 </resources>

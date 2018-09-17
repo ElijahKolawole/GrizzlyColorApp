@@ -1,5 +1,6 @@
 package com.adefemikolawole.grizzlycolorapp;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,8 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 final String txtAbout = "Author: Adefemi Kolawole\nClass: ITEC 4550\nDate: Fall 2018 (9/16/2018)";
@@ -40,7 +43,7 @@ String txtSwatch;
         tvSwatch = (TextView) findViewById(R.id.txtSwatch);
         //txtSwatch.getBackground().setAlpha(120);
 //setInitial Color for Swatch :: inital declaration of all seekbar is 0 which is 00;
-         a= 0; r= 9; g= 0; b= 0;
+         a= 0; r= 0; g= 0; b= 0;
         setStringSwatch();
 
         //set Toast function for button about
@@ -59,9 +62,8 @@ String txtSwatch;
         txtBlue = (TextView) findViewById(R.id.txtBlue);
         txtAlpha = (TextView) findViewById(R.id.txtAlpha);
 
-
-        //set calues for ints a, r, g, b for use in the assignemnt of color.get te progress from text view and assing to each respecitvely
-      //r = Integer.parseInt( txtRed.getText().toString());
+        //set values for ints a, r, g, b for use in the assignemnt of color.get te progress from text view and assing to each respecitvely
+        //r = Integer.parseInt( txtRed.getText().toString());
 
        //Button update
         btUpdate = (Button) findViewById(R.id.btUpdate);
@@ -73,7 +75,10 @@ String txtSwatch;
              //   txtSwatch.setText("test" );
                 //showSeekBarToast(String.valueOf(r));
 
-                setStringSwatch();
+               // setStringSwatch();
+//tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
+                //setNewBackgroundColor(tvSwatch, txtSwatch);
+                //setStringSwatch();
             }
         });
 
@@ -87,6 +92,8 @@ String txtSwatch;
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 txtRed.setText(""+ progress);
                 r = Integer.parseInt( txtRed.getText().toString());
+                setStringSwatch();
+                tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
 
 
             }
@@ -111,6 +118,8 @@ txtRed.setText(""+ progress);
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 txtGreen.setText(""+ progress);
                 g = Integer.parseInt( txtGreen.getText().toString());
+                setStringSwatch();
+                tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
             }
 
             @Override
@@ -134,6 +143,8 @@ txtRed.setText(""+ progress);
 
                 txtBlue.setText(""+ progress);
                 b = Integer.parseInt( txtBlue.getText().toString());
+                setStringSwatch();
+                tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
             }
 
             @Override
@@ -156,6 +167,8 @@ txtRed.setText(""+ progress);
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 txtAlpha.setText(""+ progress);
                 a = Integer.parseInt( txtAlpha.getText().toString());
+                setStringSwatch();
+                tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
             }
 
             @Override
@@ -196,11 +209,22 @@ SnackBar snackbar;
   public void setStringSwatch(){
      // txtSwatch = "#"+"A:" + a +    " R:" + r +  " G:" + g + " B:" + b ;
       //tvSwatch.setText(txtSwatch);
-      String hexR =  Integer.toHexString(r).toUpperCase();
-      String hexG =  Integer.toHexString(g).toUpperCase();
-      String hexB =  Integer.toHexString(b).toUpperCase();
-      String hexA =  Integer.toHexString(a).toUpperCase();
-      txtSwatch = "#"+hexA+hexR+hexG+hexB;
+      if ( r == 0 || g ==0 || b ==0 || a ==0){
+
+          String hexR =  "0"+Integer.toHexString(r);
+          String hexG =  "0"+Integer.toHexString(g);
+          String hexB =  "0"+Integer.toHexString(b);
+          String hexA =  "0"+Integer.toHexString(a);
+          txtSwatch = "#"+hexA+hexR+hexG+hexB;
+      }
+      else
+      {
+          String hexR =  Integer.toHexString(r).toUpperCase();
+          String hexG =  Integer.toHexString(g).toUpperCase();
+          String hexB =  Integer.toHexString(b).toUpperCase();
+          String hexA =  Integer.toHexString(a).toUpperCase();
+          txtSwatch = "#"+hexA+hexR+hexG+hexB;
+      }
 
       tvSwatch.setText(txtSwatch);
 
@@ -208,4 +232,10 @@ SnackBar snackbar;
      // tvSwatch.setText(txtSwatch);
 
      }
+
+
+     public void setNewBackgroundColor (TextView tv, String hexColorCode){
+      tv.setBackgroundColor(Color.parseColor(hexColorCode));
+
+    }
 }

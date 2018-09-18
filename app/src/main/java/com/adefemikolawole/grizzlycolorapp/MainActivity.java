@@ -91,6 +91,9 @@ String txtSwatch;
                 //setStringSwatch();
 
                 setStringSwatch();
+            setNewBackgroundColor();
+
+
             }
         });
 
@@ -103,7 +106,7 @@ String txtSwatch;
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 txtRed.setText(""+ progress);
-               // r = Integer.parseInt( txtRed.getText().toString());
+             r = Integer.parseInt( txtRed.getText().toString());
                // setStringSwatch();
                 //tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
 
@@ -223,10 +226,10 @@ SnackBar snackbar;
       //tvSwatch.setText(txtSwatch);
       if ( r == 0 || g ==0 || b ==0 || a ==0){
 
-          String hexR =  "0"+Integer.toHexString(r);
-          String hexG =  "0"+Integer.toHexString(g);
-          String hexB =  "0"+Integer.toHexString(b);
-          String hexA =  "0"+Integer.toHexString(a);
+          String hexR =  ""+Integer.toHexString(r);
+          String hexG =  ""+Integer.toHexString(g);
+          String hexB =  ""+Integer.toHexString(b);
+          String hexA =  ""+Integer.toHexString(a);
           txtSwatch = "#"+hexA+hexR+hexG+hexB;
       }
       else
@@ -246,8 +249,35 @@ SnackBar snackbar;
      }
 
 
-     public void setNewBackgroundColor (TextView tv, String hexColorCode){
-      tv.setBackgroundColor(Color.parseColor(hexColorCode));
+     public void setNewBackgroundColor (){
+     // tv.setBackgroundColor(Color.parseColor(hexColorCode));
+//int newColor = 0;
+//int color = Color.parseColor("#fffffff");
 
-    }
+         //int alpha = Math.round(Color.alpha(a));
+         int red = Integer.parseInt(Integer.toHexString(r));
+         int green = Integer.parseInt(Integer.toHexString(g));
+         int blue = Integer.parseInt(Integer.toHexString(b));
+
+        // newColor = Color.rgb( 00, 00, 00);
+ /*        if (a <= 126){
+             tvSwatch.setTextColor(Color.BLACK);
+             tvSwatch.setBackgroundColor(Color.BLACK);
+             tvSwatch.getBackground().setAlpha(a);
+         }
+
+
+     else{
+      tvSwatch.setTextColor(Color.YELLOW);
+    }*/
+ Color bgColor = new Color();
+        // tvSwatch.setBackgroundColor(Color.BLACK);
+         tvSwatch.setBackgroundColor(Color.BLUE);
+         int currentTextColor = tvSwatch.getCurrentTextColor();
+         tvSwatch.setTextColor(Color.BLUE -255);
+
+         tvSwatch.getBackground().setAlpha(a);
+
+
+}
 }

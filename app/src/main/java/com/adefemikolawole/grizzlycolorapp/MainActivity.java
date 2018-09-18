@@ -74,7 +74,7 @@ String txtSwatch;
         txtAlpha.setText("0");//set Initial color to inital value of seek bar which is 0. so there is absolute transparency.
 
         //set values for ints a, r, g, b for use in the assignemnt of color.get te progress from text view and assing to each respecitvely
-        //r = Integer.parseInt( txtRed.getText().toString());
+
 
        //Button update
         btUpdate = (Button) findViewById(R.id.btUpdate);
@@ -83,13 +83,8 @@ String txtSwatch;
         btUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             //   txtSwatch.setText("test" );
-                //showSeekBarToast(String.valueOf(r));
 
-               // setStringSwatch();
-//tvSwatch.setBackgroundColor(Color.parseColor(txtSwatch));
-                //setNewBackgroundColor(tvSwatch, txtSwatch);
-                //setStringSwatch();
+
 
                 setStringSwatch();
             setNewBackgroundColor();
@@ -215,70 +210,33 @@ txtRed.setText(""+ progress);
         Toast.makeText(MainActivity.this, str, Toast.LENGTH_LONG).show();
 
    }
-  /*  public void showAboutSnackbar(){
-SnackBar snackbar;
-      Snackbar.make(MainActivity.this, txtAbout, Toast.LENGTH_LONG).show();
-    }
-*/
+
 
 
   public void setStringSwatch(){
-     // txtSwatch = "#"+"A:" + a +    " R:" + r +  " G:" + g + " B:" + b ;
-      //tvSwatch.setText(txtSwatch);
-     // if ( r == 0 || g ==0 || b ==0 || a ==0){
 
-        /*  String hexR =  ""+Integer.toHexString(r);
-          String hexG =  ""+Integer.toHexString(g);
-          String hexB =  ""+Integer.toHexString(b);
-          String hexA =  ""+Integer.toHexString(a);
-          txtSwatch = "#"+hexA+hexR+hexG+hexB;*/
-    //  }
-    //  else
-    //  {
          String hexR =  Integer.toHexString(r);
           String hexG =  Integer.toHexString(g);
           String hexB =  Integer.toHexString(b);
           String hexA =  Integer.toHexString(a);
           txtSwatch = "#"+hexA+hexR+hexG+hexB;
-    //  }
+
 
       tvSwatch.setText(txtSwatch);
 
 
-     // tvSwatch.setText(txtSwatch);
+
 
      }
 
 
      public void setNewBackgroundColor (){
-     // tv.setBackgroundColor(Color.parseColor(hexColorCode));
-//int newColor = 0;
-//int color = Color.parseColor("#fffffff");
 
-         //int alpha = Math.round(Color.alpha(a));
-       /*  int red = Integer.parseInt(Integer.toHexString(r));
-         int green = Integer.parseInt(Integer.toHexString(g));
-         int blue = Integer.parseInt(Integer.toHexString(b));*/
-
-        // newColor = Color.rgb( 00, 00, 00);
- /*        if (a <= 126){
-             tvSwatch.setTextColor(Color.BLACK);
-             tvSwatch.setBackgroundColor(Color.BLACK);
-             tvSwatch.getBackground().setAlpha(a);
-         }
-
-
-     else{
-      tvSwatch.setTextColor(Color.YELLOW);
-    }*/
  Color bgColor = new Color();
-        // tvSwatch.setBackgroundColor(Color.BLACK);
 
-         //int currentBackgroundColor = Color.YELLOW;
          int currentBackgroundColor = Color.rgb(r, g, b);
          tvSwatch.setBackgroundColor(currentBackgroundColor);
          int currentTextColor = tvSwatch.getCurrentTextColor();
-         //tvSwatch.setTextColor(currentBackgroundColor +a);
          tvSwatch.setTextColor(currentTextColor  +a+a);
 
 

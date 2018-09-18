@@ -51,6 +51,7 @@ String txtSwatch;
 //setInitial Color for Swatch :: inital declaration of all seekbar is 0 which is 00;
          a= 0; r= 0; g= 0; b= 0;
         setStringSwatch();
+        tvSwatch.setTextColor(Color.BLACK);
 
         //set Toast function for button about
         btAbout = (Button) findViewById(R.id.btAbout);
@@ -224,22 +225,22 @@ SnackBar snackbar;
   public void setStringSwatch(){
      // txtSwatch = "#"+"A:" + a +    " R:" + r +  " G:" + g + " B:" + b ;
       //tvSwatch.setText(txtSwatch);
-      if ( r == 0 || g ==0 || b ==0 || a ==0){
+     // if ( r == 0 || g ==0 || b ==0 || a ==0){
 
-          String hexR =  ""+Integer.toHexString(r);
+        /*  String hexR =  ""+Integer.toHexString(r);
           String hexG =  ""+Integer.toHexString(g);
           String hexB =  ""+Integer.toHexString(b);
           String hexA =  ""+Integer.toHexString(a);
+          txtSwatch = "#"+hexA+hexR+hexG+hexB;*/
+    //  }
+    //  else
+    //  {
+         String hexR =  Integer.toHexString(r);
+          String hexG =  Integer.toHexString(g);
+          String hexB =  Integer.toHexString(b);
+          String hexA =  Integer.toHexString(a);
           txtSwatch = "#"+hexA+hexR+hexG+hexB;
-      }
-      else
-      {
-          String hexR =  Integer.toHexString(r).toUpperCase();
-          String hexG =  Integer.toHexString(g).toUpperCase();
-          String hexB =  Integer.toHexString(b).toUpperCase();
-          String hexA =  Integer.toHexString(a).toUpperCase();
-          txtSwatch = "#"+hexA+hexR+hexG+hexB;
-      }
+    //  }
 
       tvSwatch.setText(txtSwatch);
 
@@ -255,9 +256,9 @@ SnackBar snackbar;
 //int color = Color.parseColor("#fffffff");
 
          //int alpha = Math.round(Color.alpha(a));
-         int red = Integer.parseInt(Integer.toHexString(r));
+       /*  int red = Integer.parseInt(Integer.toHexString(r));
          int green = Integer.parseInt(Integer.toHexString(g));
-         int blue = Integer.parseInt(Integer.toHexString(b));
+         int blue = Integer.parseInt(Integer.toHexString(b));*/
 
         // newColor = Color.rgb( 00, 00, 00);
  /*        if (a <= 126){
@@ -272,9 +273,14 @@ SnackBar snackbar;
     }*/
  Color bgColor = new Color();
         // tvSwatch.setBackgroundColor(Color.BLACK);
-         tvSwatch.setBackgroundColor(Color.BLUE);
+
+         //int currentBackgroundColor = Color.YELLOW;
+         int currentBackgroundColor = Color.rgb(r, g, b);
+         tvSwatch.setBackgroundColor(currentBackgroundColor);
          int currentTextColor = tvSwatch.getCurrentTextColor();
-         tvSwatch.setTextColor(Color.BLUE -255);
+         //tvSwatch.setTextColor(currentBackgroundColor +a);
+         tvSwatch.setTextColor(currentTextColor  +a+a);
+
 
          tvSwatch.getBackground().setAlpha(a);
 
